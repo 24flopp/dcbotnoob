@@ -7,9 +7,14 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
+  if (msg.channel.name === "server-chat") {
+const embed = new Discord.MessageEmbed();
+let channel = client.channels.cache.find(ch => ch.name === "server-chat");
+.setDescription(message.content)
+.setAuthor(message.author.tag) 
+.setTimestamp()
+channel.send(embed);
+}
 });
 
 client.login(config.token);
